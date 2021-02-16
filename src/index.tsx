@@ -1,10 +1,6 @@
-import * as React from 'react'
-import styles from './styles.module.css'
+import { useContext } from 'react';
+import { AuthContext } from './common';
 
-interface Props {
-  text: string
-}
+export {AuthProvider as default} from './AuthProvider';
 
-export const ExampleComponent = ({ text }: Props) => {
-  return <div className={styles.test}>Example Component: {text}</div>
-}
+export const useAuth = () => useContext(AuthContext);

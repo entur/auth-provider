@@ -1,17 +1,27 @@
-/**
- * Default CSS definition for typescript,
- * will be overridden with file-specific definitions by rollup
- */
-declare module '*.css' {
-  const content: { [className: string]: string };
-  export default content;
+
+declare module 'keycloak-js' {
+  const Keycloak: (config: any) => any;
+  export default Keycloak;
 }
 
-interface SvgrComponent extends React.StatelessComponent<React.SVGAttributes<SVGElement>> {}
+type AuthMethod = "kc" | "auth0" | undefined;
 
-declare module '*.svg' {
-  const svgUrl: string;
-  const svgComponent: SvgrComponent;
-  export default svgUrl;
-  export { svgComponent as ReactComponent }
+interface Auth0Config {
+  domain: string;
+  clientId: string;
+  redirectUri: string;
+  audience: string;
+}
+
+interface Auth {
+  isLoading: boolean,
+  isAuthenticated: boolean,
+  user: User | null;
+  roleAssignments: string[] | null;
+  getAccessToken: () => Promise<string>;
+  logout: () => void;
+}
+
+interface User {
+  name: string;
 }
