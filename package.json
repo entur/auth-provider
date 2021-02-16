@@ -1,7 +1,7 @@
 {
   "name": "@entur/auth-provider",
-  "version": "1.0.0",
-  "description": "Components and helpers for authentication",
+  "version": "0.1.0",
+  "description": "React components and helpers for authentication",
   "author": "entur/nrp",
   "license": "EUPL",
   "repository": "entur/auth-provider",
