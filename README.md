@@ -2,7 +2,7 @@
 
 > Authentication provider for Entur applications. Primarily aimed at easing transition between legacy keycloak and auth0 in internal and data provider applications.
 
-[![NPM](https://img.shields.io/npm/v/@entur/frontend-auth-common.svg)](https://www.npmjs.com/package/@entur/frontend-auth-common) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/@entur/auth-provider.svg)](https://www.npmjs.com/package/@entur/auth-provider) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 

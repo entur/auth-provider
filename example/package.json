@@ -1,5 +1,5 @@
 {
-  "name": "@entur/frontend-auth-common-example",
+  "name": "@entur/auth-provider-example",
   "homepage": ".",
   "version": "0.0.0",
   "private": true,

@@ -1,6 +1,6 @@
 {
-  "short_name": "@entur/frontend-auth-common",
-  "name": "@entur/frontend-auth-common",
+  "short_name": "@entur/auth-provider-example",
+  "name": "@entur/auth-provider-example",
   "icons": [
     {
       "src": "favicon.ico",
