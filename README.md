@@ -12,16 +12,20 @@ npm install --save @entur/auth-provider
 
 ## Usage
 
-Simplest possible example, using auth0 only. See example application for more complex use case.
-
 ```tsx
 import React from 'react'
 import { render } from 'react-dom';
 
 import AuthProvider, { useAuth } from '@entur/auth-provider';
 
+// Provide either auth0Config, keycloakConfigUrl or both
 const auth0Config = {}; //<-- see auth0 docs for required fields
 const auth0ClaimsNamespace = ''; // <-- required for custom roles parsing
+const keycloakConfigUrl = ''; // <-- where to find keycloak config
+
+// defaultAuthMethod is optional, kc (keycloak) is default. User can override with query parameter:
+// ?authMethod=kc|auth0
+const defaultAuthMethod = 'auth0';
 
 const App = () => {
   const {
@@ -36,7 +40,12 @@ const App = () => {
 }
 
 render(
-  <AuthProvider auth0Config={auth0Config} auth0ClaimsNamespace={auth0ClaimsNamespace}>
+  <AuthProvider
+    auth0Config={auth0Config}
+    auth0ClaimsNamespace={auth0ClaimsNamespace}
+    keycloakConfigUrl={keycloakConfigUrl}
+    defaultAuthMethod={defaultAuthMethod}
+  >
     <App />
   <AuthProvider>
 );
