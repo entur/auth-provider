@@ -11,6 +11,8 @@ interface Auth0Config {
   clientId: string;
   redirectUri: string;
   audience: string;
+  useRefreshToken?: boolean;
+  cacheLocation?: "localstorage" | "memory";
 }
 
 interface Auth {
