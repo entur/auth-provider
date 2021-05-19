@@ -34,7 +34,6 @@ export const Auth0AuthProvider = ({children, claimsNamespace, loginAutomatically
     if (loginAutomatically) {
       loginWithRedirect();
     }
-    return null;
   }
   
   return (
