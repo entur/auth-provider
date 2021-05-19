@@ -27,6 +27,10 @@ const keycloakConfigUrl = ''; // <-- where to find keycloak config
 // ?authMethod=kc|auth0
 const defaultAuthMethod = 'auth0';
 
+// If set to false, app will not automatically redirect to login page
+// Note: Only works on auth0 - keycloak will always redirect automatically
+const loginAutomatically = false;
+
 const App = () => {
   const {
     isAuthenticated
@@ -45,14 +49,12 @@ render(
     auth0ClaimsNamespace={auth0ClaimsNamespace}
     keycloakConfigUrl={keycloakConfigUrl}
     defaultAuthMethod={defaultAuthMethod}
-    loginAutomatically={false}
+    loginAutomatically={loginAutomatically}
   >
     <App />
   <AuthProvider>
 );
 ```
-
-Note: The `loginAutomatically` prop only works on Auth0.
 
 ## License
 
