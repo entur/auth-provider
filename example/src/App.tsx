@@ -15,7 +15,12 @@ const App = () => {
   }
 
   if (!auth.isAuthenticated) {
-    return <h1>Not authenticated</h1>;
+    return (
+      <>
+        <h1>Not authenticated</h1>
+        <p><button type="button" onClick={() => auth.login()}>Log in</button></p>
+      </>
+    );
   }
 
   return (
