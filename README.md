@@ -45,11 +45,14 @@ render(
     auth0ClaimsNamespace={auth0ClaimsNamespace}
     keycloakConfigUrl={keycloakConfigUrl}
     defaultAuthMethod={defaultAuthMethod}
+    loginAutomatically={false}
   >
     <App />
   <AuthProvider>
 );
 ```
+
+Note: The `loginAutomatically` prop only works on Auth0.
 
 ## License
 
