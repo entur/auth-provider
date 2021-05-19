@@ -17,7 +17,8 @@ export const defaultAuthState = {
   user: null,
   roleAssignments: null,
   getAccessToken: () => Promise.resolve(""),
-  logout: () => {}
+  logout: () => {},
+  login: () => {}
 };
 
 export const AuthContext = React.createContext<Auth>(defaultAuthState);

@@ -10,6 +10,7 @@ interface Props {
   auth0ClaimsNamespace?: string;
   defaultAuthMethod?: AuthMethod;
   children?: React.ReactNode;
+  loginAutomatically?: boolean;
 }
 
 export const AuthProvider = ({
@@ -18,6 +19,7 @@ export const AuthProvider = ({
   auth0ClaimsNamespace,
   defaultAuthMethod,
   children,
+  loginAutomatically = true,
 }: Props) => {
   const [authProvider, setAuthProvider] = useState<string>(
     getAuthMethod(defaultAuthMethod)
@@ -41,7 +43,8 @@ export const AuthProvider = ({
   if (authProvider === 'kc') {
     return (
       <KeycloakAuthProvider
-        configUrl={keycloakConfigUrl}>
+        configUrl={keycloakConfigUrl}
+        loginAutomatically={loginAutomatically}>
         {children}
       </KeycloakAuthProvider>
     );
@@ -52,7 +55,8 @@ export const AuthProvider = ({
         cacheLocation={window.location.hostname.indexOf('localhost') > -1 ? 'localstorage' : 'memory'}
         {...auth0Config!}>
         <Auth0AuthProvider
-          claimsNamespace={auth0ClaimsNamespace}>
+          claimsNamespace={auth0ClaimsNamespace}
+          loginAutomatically={loginAutomatically}>
           {children}
         </Auth0AuthProvider>
       </Auth0Provider>

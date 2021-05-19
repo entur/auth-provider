@@ -6,9 +6,10 @@ import { defaultAuthState, AuthContext } from "./common";
 interface Props {
   children: React.ReactNode;
   configUrl?: string;
+  loginAutomatically?: boolean;
 }
 
-export const KeycloakAuthProvider = ({ children, configUrl }: Props) => {
+export const KeycloakAuthProvider = ({ children, configUrl, loginAutomatically }: Props) => {
   const [auth, setAuth] = useState<Auth>(defaultAuthState);
   
   useEffect(() => {
@@ -29,7 +30,8 @@ export const KeycloakAuthProvider = ({ children, configUrl }: Props) => {
           getAccessToken: async () => {
             return token;
           },
-          logout: () => kc.logout()
+          logout: () => kc.logout(),
+          login: () => kc.login(),
         });
         
         updater = setInterval(async () => {
@@ -40,8 +42,10 @@ export const KeycloakAuthProvider = ({ children, configUrl }: Props) => {
             kc.logout();
           }
         }, 10000);
-      } else {
+      } else if (loginAutomatically) {
         return kc.login();
+      } else {
+        return;
       }
     });
     

@@ -22,6 +22,7 @@ interface Auth {
   roleAssignments: string[] | null;
   getAccessToken: () => Promise<string>;
   logout: () => void;
+  login: () => void;
 }
 
 interface User {
