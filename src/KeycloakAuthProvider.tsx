@@ -6,10 +6,9 @@ import { defaultAuthState, AuthContext } from "./common";
 interface Props {
   children: React.ReactNode;
   configUrl?: string;
-  loginAutomatically?: boolean;
 }
 
-export const KeycloakAuthProvider = ({ children, configUrl, loginAutomatically }: Props) => {
+export const KeycloakAuthProvider = ({ children, configUrl }: Props) => {
   const [auth, setAuth] = useState<Auth>(defaultAuthState);
   
   useEffect(() => {
@@ -42,10 +41,8 @@ export const KeycloakAuthProvider = ({ children, configUrl, loginAutomatically }
             kc.logout();
           }
         }, 10000);
-      } else if (loginAutomatically) {
-        return kc.login();
       } else {
-        return;
+        return kc.login();
       }
     });
     

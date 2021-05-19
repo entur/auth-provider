@@ -43,8 +43,7 @@ export const AuthProvider = ({
   if (authProvider === 'kc') {
     return (
       <KeycloakAuthProvider
-        configUrl={keycloakConfigUrl}
-        loginAutomatically={loginAutomatically}>
+        configUrl={keycloakConfigUrl}>
         {children}
       </KeycloakAuthProvider>
     );
