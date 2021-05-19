@@ -1,14 +1,14 @@
-import React from 'react';
+import React from 'react'
 
 export function getAuthMethod(defaultAuthMethod: AuthMethod): string {
   if (window.location.search.indexOf('authMethod=auth0') > -1) {
-    localStorage.setItem('ENTUR::authMethod', 'auth0');
+    localStorage.setItem('ENTUR::authMethod', 'auth0')
   } else if (window.location.search.indexOf('authMethod=kc') > -1) {
-    localStorage.setItem('ENTUR::authMethod', 'kc');
+    localStorage.setItem('ENTUR::authMethod', 'kc')
   } else if (localStorage.getItem('ENTUR::authMethod') === null) {
-    localStorage.setItem('ENTUR::authMethod', defaultAuthMethod || 'kc');
+    localStorage.setItem('ENTUR::authMethod', defaultAuthMethod || 'kc')
   }
-  return localStorage.getItem('ENTUR::authMethod') || defaultAuthMethod || 'kc';
+  return localStorage.getItem('ENTUR::authMethod') || defaultAuthMethod || 'kc'
 }
 
 export const defaultAuthState = {
@@ -16,9 +16,9 @@ export const defaultAuthState = {
   isAuthenticated: false,
   user: null,
   roleAssignments: null,
-  getAccessToken: () => Promise.resolve(""),
+  getAccessToken: () => Promise.resolve(''),
   logout: () => {},
   login: () => {}
-};
+}
 
-export const AuthContext = React.createContext<Auth>(defaultAuthState);
+export const AuthContext = React.createContext<Auth>(defaultAuthState)
