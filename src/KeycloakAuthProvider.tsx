@@ -29,7 +29,8 @@ export const KeycloakAuthProvider = ({ children, configUrl }: Props) => {
           getAccessToken: async () => {
             return token;
           },
-          logout: () => kc.logout()
+          logout: () => kc.logout(),
+          login: () => kc.login(),
         });
         
         updater = setInterval(async () => {

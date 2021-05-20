@@ -5,9 +5,10 @@ import { AuthContext } from "./common";
 interface Props {
   children?: React.ReactNode;
   claimsNamespace?: string;
+  loginAutomatically?: boolean;
 }
 
-export const Auth0AuthProvider = ({children, claimsNamespace}: Props) => {
+export const Auth0AuthProvider = ({children, claimsNamespace, loginAutomatically}: Props) => {
   const {
     isLoading,
     isAuthenticated,
@@ -15,7 +16,7 @@ export const Auth0AuthProvider = ({children, claimsNamespace}: Props) => {
     loginWithRedirect,
     getIdTokenClaims,
     getAccessTokenSilently,
-    logout
+    logout,
   } = useAuth0();
   const [roleAssignments, setRoleAssignments] = useState<any>();
   
@@ -30,8 +31,9 @@ export const Auth0AuthProvider = ({children, claimsNamespace}: Props) => {
   }, [isAuthenticated, getIdTokenClaims]);
   
   if (!isAuthenticated && !isLoading) {
-    loginWithRedirect();
-    return null;
+    if (loginAutomatically) {
+      loginWithRedirect();
+    }
   }
   
   return (
@@ -42,6 +44,7 @@ export const Auth0AuthProvider = ({children, claimsNamespace}: Props) => {
       roleAssignments,
       getAccessToken: getAccessTokenSilently,
       logout,
+      login: () => loginWithRedirect(),
     }}>
     {children}
     </AuthContext.Provider>
