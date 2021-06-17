@@ -56,6 +56,27 @@ render(
 );
 ```
 
+## Release
+
+First build:
+
+    npm run build
+
+Then bump version:
+
+    npm version [major|minor|patch]
+
+Then publish (use dry-run first to see what's included)
+
+    npm publish --dry-run
+
+    npm publish
+
+Finally, push tags to GitHub
+
+    git push origin --tags
+
+
 ## License
 
 EUPL © [entur/nrp](https://github.com/entur/nrp)
