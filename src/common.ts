@@ -2,13 +2,12 @@ import React from 'react';
 
 export function getAuthMethod(defaultAuthMethod: AuthMethod): string {
   if (window.location.search.indexOf('authMethod=auth0') > -1) {
-    localStorage.setItem('ENTUR::authMethod', 'auth0');
+    return 'auth0';
   } else if (window.location.search.indexOf('authMethod=kc') > -1) {
-    localStorage.setItem('ENTUR::authMethod', 'kc');
-  } else if (localStorage.getItem('ENTUR::authMethod') === null) {
-    localStorage.setItem('ENTUR::authMethod', defaultAuthMethod || 'kc');
+    return 'kc';
+  }  else {
+    return defaultAuthMethod || 'auth0';
   }
-  return localStorage.getItem('ENTUR::authMethod') || defaultAuthMethod || 'kc';
 }
 
 export const defaultAuthState = {
