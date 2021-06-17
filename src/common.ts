@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 export function getAuthMethod(defaultAuthMethod: AuthMethod): string {
   if (window.location.search.indexOf('authMethod=auth0') > -1) {
@@ -15,9 +15,9 @@ export const defaultAuthState = {
   isAuthenticated: false,
   user: null,
   roleAssignments: null,
-  getAccessToken: () => Promise.resolve(""),
+  getAccessToken: () => Promise.resolve(''),
   logout: () => {},
   login: () => {}
-};
+}
 
-export const AuthContext = React.createContext<Auth>(defaultAuthState);
+export const AuthContext = React.createContext<Auth>(defaultAuthState)
