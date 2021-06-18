@@ -1,7 +1,9 @@
 import React from 'react'
 
 export function getAuthMethod(defaultAuthMethod: AuthMethod): string {
-  if (window.location.search.indexOf('authMethod=auth0') > -1) {
+  if (defaultAuthMethod === 'auth0') {
+    return 'auth0';
+  } else if (window.location.search.indexOf('authMethod=auth0') > -1) {
     return 'auth0';
   } else if (window.location.search.indexOf('authMethod=kc') > -1) {
     return 'kc';
