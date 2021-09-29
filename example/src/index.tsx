@@ -17,8 +17,6 @@ ReactDOM.render(
   <AuthProvider
     auth0Config={auth0Config}
     auth0ClaimsNamespace={process.env.REACT_APP_AUTH0_CLAIMS_NAMESPACE}
-    keycloakConfigUrl="/keycloak.json"
-    defaultAuthMethod="auth0"
     loginAutomatically={false}
   >
     <App />

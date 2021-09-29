@@ -1,10 +1,3 @@
-declare module 'keycloak-js' {
-  const Keycloak: (config: any) => any
-  export default Keycloak
-}
-
-type AuthMethod = 'kc' | 'auth0' | undefined
-
 interface Auth0Config {
   domain: string
   clientId: string

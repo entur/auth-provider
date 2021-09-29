@@ -6169,10 +6169,6 @@ jsx-ast-utils@^2.2.1, jsx-ast-utils@^2.2.3:
     array-includes "^3.1.2"
     object.assign "^4.1.2"
 
-keycloak-js@3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/keycloak-js/-/keycloak-js-3.1.0.tgz#094a620837f147190b0877b707f11a8e2fb76bcf"
-
 killable@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/killable/-/killable-1.0.1.tgz#4c8ce441187a061c7474fb87ca08e2a638194892"
