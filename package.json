@@ -57,7 +57,7 @@
     "react": "^16.14.0",
     "react-dom": "16.14.0",
     "react-scripts": "^3.4.1",
-    "typescript": "^3.7.5"
+    "typescript": "3.9.10"
   },
   "files": [
     "dist"
