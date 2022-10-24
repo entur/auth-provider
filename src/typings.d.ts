@@ -14,7 +14,7 @@ interface Auth {
   roleAssignments: string[] | null
   getAccessToken: () => Promise<string>
   logout: () => void
-  login: () => void
+  login: (redirectUri?: string) => void
 }
 
 interface User {

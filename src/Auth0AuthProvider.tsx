@@ -49,7 +49,7 @@ export const Auth0AuthProvider = ({
         roleAssignments,
         getAccessToken: getAccessTokenSilently,
         logout,
-        login: () => loginWithRedirect()
+        login: (redirectUri?: string) => loginWithRedirect({ redirectUri })
       }}
     >
       {children}
