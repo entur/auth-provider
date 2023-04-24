@@ -1,4 +1,5 @@
 import React from 'react'
+import { Auth, User } from './typings'
 
 export const defaultAuthState = {
   isLoading: false,
@@ -10,4 +11,9 @@ export const defaultAuthState = {
   login: () => {}
 }
 
-export const AuthContext = React.createContext<Auth>(defaultAuthState)
+function createAuthContext<T extends User>() {
+  return React.createContext<Auth<T>>(defaultAuthState)
+}
+
+export const AuthContext = createAuthContext();
+

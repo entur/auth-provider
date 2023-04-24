@@ -27,7 +27,9 @@ export const Auth0AuthProvider = ({
   useEffect(() => {
     const getClaims = async () => {
       const idTokenClaims = await getIdTokenClaims()
-      setRoleAssignments(idTokenClaims[claimsNamespace!])
+      if (idTokenClaims) {
+        setRoleAssignments(idTokenClaims[claimsNamespace!])
+      }
     }
     if (isAuthenticated && claimsNamespace !== undefined) {
       getClaims()

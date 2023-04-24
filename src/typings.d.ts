@@ -7,16 +7,16 @@ interface Auth0Config {
   cacheLocation?: 'localstorage' | 'memory'
 }
 
-interface Auth {
+interface Auth<T extends User> {
   isLoading: boolean
   isAuthenticated: boolean
-  user: User | null
-  roleAssignments: string[] | null
+  user?: T | null
+  roleAssignments?: string[] | null
   getAccessToken: () => Promise<string>
   logout: () => void
   login: (redirectUri?: string) => void
 }
 
-interface User {
-  name: string
+export interface User {
+  name?: string
 }

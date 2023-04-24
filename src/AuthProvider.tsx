@@ -1,6 +1,7 @@
 import React from 'react'
 import { Auth0Provider } from '@auth0/auth0-react'
 import { Auth0AuthProvider } from './Auth0AuthProvider'
+import { Auth0Config } from './typings'
 
 interface Props {
   keycloakConfigUrl?: string
